@@ -11,7 +11,9 @@ bands.addBand(new Band('Led Zeppelin'));
 
 console.log(bands);
 
-io.on('connection', (client) => {
+io
+.of('/v1/bands-room')
+.on('connection', (client) => {
     console.log('client connected: ');
     
     client.emit('active-bands', bands.getBands());
